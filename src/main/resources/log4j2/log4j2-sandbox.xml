@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" shutDownHook="disable">
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <LaaSHTTPAppender name="laas">
+            <token>932ce49d064d4eb8be492671f9b7cd43_sandbox_dbca5ea4-584f-4118-a7d7-c5af1bcfd984</token>
+            <collectorEndpoint>https://verda-laas-collector.linecorp.com/v2/store</collectorEndpoint>
+            <debug>false</debug>
+            <bulkEnable>true</bulkEnable>
+        </LaaSHTTPAppender>
+        <Async name="asyncLaas">
+            <AppenderRef ref="laas"/>
+            <blocking>false</blocking>
+            <includeLocation>true</includeLocation>
+        </Async>
+    </Appenders>
+    <Loggers>
+        <Logger name="laas-log" level="info" additivity="false">
+            <AppenderRef ref="asyncLaas"/>
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="nelo" level="debug" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="org.springframework" level="warn" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="org.mybatis" level="warn" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="org.hibernate" level="warn" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="com.zaxxer" level="warn" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="org.thymeleaf" level="warn" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="org.apache.ibatis" level="warn" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="de.codecentric.boot.admin" level="debug" additivity="false">
+        </Logger>
+        <Logger name="reactor.netty" level="debug" additivity="false">
+        </Logger>
+        <Logger name="io.netty" level="debug" additivity="false">
+        </Logger>
+        <Logger name="org.hibernate.persister.entity.AbstractEntityPersister" level="warn" additivity="false">
+        </Logger>
+        <Logger name="org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor" level="warn"
+                additivity="false">
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="console"/>
+        </Root>
+    </Loggers>
+</Configuration>

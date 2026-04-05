@@ -1,0 +1,302 @@
+spring:
+  application:
+    name: nowonbun-selenium
+  main:
+    banner-mode: console
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+  profiles:
+    active: local
+
+logging:
+  config: classpath:log4j2/log4j2-${spring.profiles.active}.xml
+
+app:
+  job-thread:
+    size: 1
+  # chrome-size: 1920,1080
+  chrome-size: 1920,2160
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  thymeleaf:
+    cache: false
+  boot:
+    admin:
+      context-path: /admin
+      instance-auth:
+        enabled: true
+        default-user-name: nowonbun
+        default-password: nowonbun123$$5
+      client:
+        url: http://localhost:8089/admin
+        username: nowonbun
+        password: nowonbun123$$5
+        instance:
+          name: NOWONBUN-SELENIUM(LOCAL)
+
+server:
+  port: 8089
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      show-values: always
+    health:
+      show-details: always
+    configprops:
+      show-values: always
+    metrics:
+      enabled: true
+  health:
+    db:
+      enabled: false
+    mail:
+      enabled: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: alpha
+  thymeleaf:
+    cache: true
+  boot:
+    admin:
+      context-path: /admin
+      instance-auth:
+        enabled: true
+        default-user-name: nowonbun
+        default-password: nowonbun123$$5
+      client:
+        url: http://localhost:80/admin
+        username: nowonbun
+        password: nowonbun123$$5
+        instance:
+          name: NOWONBUN-SELENIUM(ALPHA)
+
+server:
+  port: 8089
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      show-values: never
+    health:
+      show-details: always
+    configprops:
+      show-values: never
+    metrics:
+      enabled: true
+  health:
+    db:
+      enabled: false
+    mail:
+      enabled: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: gamma
+  thymeleaf:
+    cache: true
+  boot:
+    admin:
+      context-path: /admin
+      instance-auth:
+        enabled: true
+        default-user-name: nowonbun
+        default-password: nowonbun123$$5
+      client:
+        url: http://localhost:80/admin
+        username: nowonbun
+        password: nowonbun123$$5
+        instance:
+          name: NOWONBUN-SELENIUM(GAMMA)
+
+server:
+  port: 8089
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      show-values: never
+    health:
+      show-details: always
+    configprops:
+      show-values: never
+    metrics:
+      enabled: true
+  health:
+    db:
+      enabled: false
+    mail:
+      enabled: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: beta
+  thymeleaf:
+    cache: true
+  boot:
+    admin:
+      context-path: /admin
+      instance-auth:
+        enabled: true
+        default-user-name: nowonbun
+        default-password: nowonbun123$$5
+      client:
+        url: http://localhost:80/admin
+        username: nowonbun
+        password: nowonbun123$$5
+        instance:
+          name: NOWONBUN-SELENIUM(BETA)
+
+server:
+  port: 8089
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      show-values: never
+    health:
+      show-details: always
+    configprops:
+      show-values: never
+    metrics:
+      enabled: true
+  health:
+    db:
+      enabled: false
+    mail:
+      enabled: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: sandbox
+  thymeleaf:
+    cache: true
+  boot:
+    admin:
+      context-path: /admin
+      instance-auth:
+        enabled: true
+        default-user-name: nowonbun
+        default-password: nowonbun123$$5
+      client:
+        url: http://localhost:80/admin
+        username: nowonbun
+        password: nowonbun123$$5
+        instance:
+          name: NOWONBUN-SELENIUM(SANDBOX)
+
+server:
+  port: 8089
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      show-values: never
+    health:
+      show-details: always
+    configprops:
+      show-values: never
+    metrics:
+      enabled: true
+  health:
+    db:
+      enabled: false
+    mail:
+      enabled: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: real
+  thymeleaf:
+    cache: true
+  boot:
+    admin:
+      context-path: /admin
+      instance-auth:
+        enabled: true
+        default-user-name: nowonbun
+        default-password: nowonbun123$$5
+      client:
+        url: http://localhost:80/admin
+        username: nowonbun
+        password: nowonbun123$$5
+        instance:
+          name: NOWONBUN-SELENIUM(REAL)
+
+server:
+  port: 8083
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      show-values: never
+    health:
+      show-details: always
+    configprops:
+      show-values: never
+    metrics:
+      enabled: true
+  health:
+    db:
+      enabled: false
+    mail:
+      enabled: false
+
